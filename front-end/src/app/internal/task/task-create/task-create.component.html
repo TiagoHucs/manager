@@ -1,0 +1,16 @@
+<h2 class="text-center mb-4">Create Task</h2>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="taskname" class="form-label">Task name</label>
+        <input type="taskname" class="form-control" id="taskname" formControlName="name"
+            placeholder="Enter your task name">
+    </div>
+    <div class="mb-3">
+        <label for="taskDescription" class="form-label">Task description</label>
+        <input type="taskDescription" class="form-control" id="taskDescription" formControlName="description"
+            placeholder="Enter your task description">
+    </div>
+    <div class="d-grid  text-center">
+        <button type="submit" class="btn mg-bt-default" [disabled]="taskForm.invalid">Register</button>
+    </div>
+</form>
