@@ -1,13 +1,13 @@
 <div *ngIf="resource">
     <div class="row">
-        <div class="col-sm-3">
+        <div ></div>
+        <div *ngFor="let task of resource.tasks" class="col-sm-3">
             <div class="mg-card mg-default">
-                <span class="mg-4"><i class="fa fa-newspaper-o"></i> Notícias</span>
-                <div> 12/09/2024 - Venda Clube</div>
-                <div> 12/09/2024 - Compra Silva</div>
+                <span class="mg-4"><i class="fa fa-ticket"></i> {{task.name}}</span>
+                <div> Status: - {{task.status}}</div>
             </div>
         </div>
-        <div class="col-sm-3">
+        <!-- <div class="col-sm-3">
             <div class="mg-card mg-warning">
                 <span class="mg-4"><i class="fa fa-newspaper-o"></i> Notícias</span>
                 <div> 12/09/2024 - Venda Clube</div>
@@ -27,7 +27,7 @@
                 <div> 12/09/2024 - Venda</div>
                 <div> 12/09/2024 - Compra</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <hr>
     <div class="row">

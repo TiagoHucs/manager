@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TaskMapper {
 
-    static Task map(TaskDTO dto){
+    public static Task map(TaskDTO dto){
         return Task.builder()
                 .id(dto.getId())
                 .name(dto.getName())
@@ -17,7 +17,7 @@ public class TaskMapper {
                 .build();
     }
 
-    static TaskDTO map(Task obj){
+    public static TaskDTO map(Task obj){
         return TaskDTO.builder()
                 .id(obj.getId())
                 .name(obj.getName())
@@ -27,7 +27,7 @@ public class TaskMapper {
                 .build();
     }
 
-    static List<TaskDTO> map(List<Task> objs){
+    public static List<TaskDTO> map(List<Task> objs){
         List<TaskDTO> tasksDTO = new ArrayList<>();
         objs.forEach(task -> {
             tasksDTO.add(map(task));
