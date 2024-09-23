@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-default);
 }
 
+.dropdown-menu.show {
+    color: var(--primary-default);
+}
+
+ul, li {
+    color: var(--primary-default);
+}
+
 .mg-4{
     font-size: 20px;
 }
