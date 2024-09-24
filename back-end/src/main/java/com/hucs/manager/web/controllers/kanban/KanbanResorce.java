@@ -1,4 +1,4 @@
-package com.hucs.manager.core.home;
+package com.hucs.manager.web.controllers.kanban;
 
 import com.hucs.manager.web.controllers.task.TaskDTO;
 import lombok.Builder;
@@ -10,9 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class HomeResource {
+public class KanbanResorce {
 
-    String welcome;
     List<TaskDTO> tasks;
-
 }

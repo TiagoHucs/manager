@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '../../app.url.dev'
+import { API_URL } from '../../app.url.dev';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class KanbanService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getHome(){
-    return this.httpClient.get(`${API_URL}home`);
+  getKanban(){
+    return this.httpClient.get(`${API_URL}kanban`);
   }
 
 }

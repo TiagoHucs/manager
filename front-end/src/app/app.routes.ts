@@ -4,6 +4,7 @@ import { SignUpComponent } from './external/sign-up/sign-up.component';
 import { LayoutComponent } from './internal/layout/layout.component';
 import { HomeComponent } from './internal/home/home.component';
 import { TaskCreateComponent } from './internal/task/task-create/task-create.component';
+import { KanbanComponent } from './internal/kanban/kanban.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'signin', pathMatch: 'prefix' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'prefix' },
             { path: 'home', component: HomeComponent },
-            { path: 'task-create', component: TaskCreateComponent }
+            { path: 'task-create', component: TaskCreateComponent },
+            { path: 'kanban', component: KanbanComponent }
         ]
     }];
