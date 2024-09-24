@@ -12,6 +12,7 @@ public class TaskMapper {
                 .id(dto.getId())
                 .name(dto.getName())
                 .status(dto.getStatus())
+                .description(dto.getDescription())
                 .createdDateTime(dto.getCreatedDateTime())
                 .closedDateTime(dto.getClosedDateTime())
                 .build();

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { KanbanService } from './kanban.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './kanban.component.html',
   styleUrl: './kanban.component.css'
 })

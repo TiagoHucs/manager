@@ -1,14 +1,26 @@
-<div class="row">
+<div *ngIf="resource" class="row">
     <div class="col-sm-4">
         <h4>A fazer</h4>
         <hr>
+        <div *ngFor="let task of resource.tasks" class="mg-card mg-default">
+            {{task.name}}<br>
+            {{task.status}}
+        </div>
     </div>
     <div class="col-sm-4">
         <h4>Em andamento</h4>
         <hr>
+        <div *ngFor="let task of resource.tasks" class="mg-card mg-warning">
+            {{task.name}}<br>
+            {{task.status}}
+        </div>
     </div>
     <div class="col-sm-4">
         <h4>Finalizado</h4>
         <hr>
+        <div *ngFor="let task of resource.tasks" class="mg-card mg-success">
+            {{task.name}}<br>
+            {{task.status}}
+        </div>
     </div>
 </div>
