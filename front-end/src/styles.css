@@ -1,78 +1,48 @@
-:root {
-    --primary-default: #10598a;
-    --secondary-default: #95bcd6;
-    --primary-success: #6d965d;
-    --secondary-success: #96ce80;
-    --primary-warning: #8f9120;
-    --secondary-warning: #dfe0a4;
-    --primary-danger: #e43030;
-    --secondary-danger: #e0a4a4;
-  }
+/* Importando a fonte diretamente no CSS (opcional) */
+/**@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*/
 
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--primary-default);
+    color: #00ff00; /* Verde tipo terminal retro */
+    text-shadow: 2px 2px 0px #ff0000, 4px 4px 0px #0000ff; /* Sombra colorida */
 }
 
-.dropdown-menu.show {
-    color: var(--primary-default);
+a{
+    color: gray; /* Verde tipo terminal retro */
 }
 
-ul, li {
-    color: var(--primary-default);
+button{
+    background-color: gray
 }
 
-.mg-4{
-    font-size: 20px;
+.navbar{
+    background-color: gray;
 }
 
-.player {
+.nav-item{
+    background-color: #b7b7c9;
     border-style: solid;
-    border-radius: 5px;
-    margin: 2px;
-    padding: 2px;
-    color: var(--primary-color);
+    border-top: 0px;
+    border-left: 0px;
+    margin-right: 5px;
 }
 
-.mg-line-default{
-    background-color:  var(--secondary-default);
-    height: 4px;
-}
 
-.mg-default, .mg-bt-default{
-    background-color: var(--primary-default);
-    color: white;
-}
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.mg-bt-default:hover{
-    background-color: var(--secondary-default);
-    color: white;
-}
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-.mg-default{
-    background-color: var(--primary-default);
-    color: var(--secondary-default);
-}
-
-.mg-warning{
-    background-color: var(--primary-warning);
-    color: var(--secondary-warning);
-}
-
-.mg-danger{
-    background-color: var(--primary-danger);
-    color: var(--secondary-danger);
-}
-
-.mg-success{
-    background-color: var(--primary-success);
-    color: var(--secondary-success);
-}
-
-.mg-card{
-    padding: 10px;
-    border-radius: 15px;
-    border-width: 4px;
-    border-style: solid;
-    margin-bottom: 4px;
-}

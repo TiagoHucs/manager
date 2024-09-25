@@ -1,0 +1,16 @@
+:root {
+    --primary-default: #10598a;
+    --secondary-default: #95bcd6;
+    --primary-success: #6d965d;
+    --secondary-success: #96ce80;
+    --primary-warning: #8f9120;
+    --secondary-warning: #dfe0a4;
+    --primary-danger: #e43030;
+    --secondary-danger: #e0a4a4;
+  }
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-default);
+}
+

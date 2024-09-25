@@ -1,19 +1,20 @@
+
+<h3 class="text-center mb-4">Login</h3>
 <div class="container login-container">
-    <div class="login-form bg-light p-4 rounded">
-      <h2 class="text-center mb-4">Manager Login</h2>
+  <div class="login-form bg-light p-4 rounded">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
+          <label for="username" class="form-label">Nome de usuário</label>
           <input type="username" class="form-control" id="username" formControlName="username" placeholder="Enter your username">
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Senha</label>
           <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
         </div>
         <div class="d-grid text-center">
-          <button type="submit" class="btn mg-bt-default" [disabled]="loginForm.invalid">Sign In</button>
+          <button type="submit" [disabled]="loginForm.invalid">Logar</button>
           <br>
-            <a class="nav-link" href="signup">create your account here.</a>
+            <a href="signup">Criar uma conta.</a>
         </div>
       </form>
     </div>
