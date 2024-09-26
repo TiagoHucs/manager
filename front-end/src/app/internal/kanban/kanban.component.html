@@ -2,7 +2,7 @@
     <div class="col-sm-4">
         <h4>A fazer</h4>
         <hr>
-        <div *ngFor="let task of resource.tasks">
+        <div *ngFor="let task of resource.openTasks">
             {{task.name}}<br>
             {{task.status}}
         </div>
@@ -10,7 +10,7 @@
     <div class="col-sm-4">
         <h4>Em andamento</h4>
         <hr>
-        <div *ngFor="let task of resource.tasks">
+        <div *ngFor="let task of resource.progressTasks">
             {{task.name}}<br>
             {{task.status}}
         </div>
@@ -18,7 +18,7 @@
     <div class="col-sm-4">
         <h4>Finalizado</h4>
         <hr>
-        <div *ngFor="let task of resource.tasks">
+        <div *ngFor="let task of resource.closedTasks">
             {{task.name}}<br>
             {{task.status}}
         </div>
