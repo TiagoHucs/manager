@@ -1,6 +1,7 @@
 package com.hucs.manager.web.controllers.kanban;
 
 import com.hucs.manager.core.task.TaskService;
+import com.hucs.manager.core.task.TaskStatus;
 import com.hucs.manager.web.controllers.task.TaskMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,9 @@ public class KanbanController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public KanbanResorce getKanban() {
         return KanbanResorce.builder()
-                .tasks(TaskMapper.map(taskService.findAll()))
+                .openTasks(TaskMapper.map(taskService.findByStatus(TaskStatus.OPEN)))
+                .progressTasks(TaskMapper.map(taskService.findByStatus(TaskStatus.IN_PROGRESS)))
+                .closedTasks(TaskMapper.map(taskService.findByStatus(TaskStatus.CLOSED)))
                 .build();
     }
 

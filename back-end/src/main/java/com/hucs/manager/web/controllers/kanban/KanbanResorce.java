@@ -12,5 +12,7 @@ import java.util.List;
 @Builder
 public class KanbanResorce {
 
-    List<TaskDTO> tasks;
+    List<TaskDTO> openTasks;
+    List<TaskDTO> progressTasks;
+    List<TaskDTO> closedTasks;
 }

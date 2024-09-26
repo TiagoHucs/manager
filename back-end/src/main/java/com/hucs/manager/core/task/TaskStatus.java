@@ -2,5 +2,5 @@ package com.hucs.manager.core.task;
 
 public enum TaskStatus {
 
-    OPEN,CLOSED;
+    OPEN,IN_PROGRESS, CLOSED;
 }

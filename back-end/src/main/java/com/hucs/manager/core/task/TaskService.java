@@ -19,6 +19,10 @@ public class TaskService {
         return this.taskRepository.findAll();
     }
 
+    public List<Task> findByStatus(TaskStatus status){
+        return this.taskRepository.findByStatus(status);
+    }
+
 
     public Task open(Long id) {
         return this.taskRepository.getReferenceById(id);
