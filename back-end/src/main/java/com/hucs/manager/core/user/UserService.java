@@ -1,5 +1,6 @@
 package com.hucs.manager.core.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -8,19 +9,28 @@ import java.util.Map;
 @Service
 public class UserService {
 
-    private Map<String, String> users = new HashMap<>();
+    @Autowired
+    private UserRepository userRepository;
 
     // Autenticação de usuário (login)
     public boolean authenticate(String username, String password) {
-        return users.containsKey(username) && users.get(username).equals(password);
+        User user = findByUsername(username);
+        if(user == null){
+            return false;
+        }
+        return user.getUsername().equals(username) && user.getPassword().equals(password);
     }
 
     // Registro de usuário (sign up)
     public boolean register(User user) {
-        if (users.containsKey(user.getUsername())) {
+        if (findByUsername(user.getUsername()) != null) {
             return false; // Usuário já existe
         }
-        users.put(user.getUsername(), user.getPassword());
+        userRepository.save(user);
         return true;
+    }
+
+    private User findByUsername(String username){
+        return userRepository.findByUsername(username);
     }
 }
