@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { SignInComponent } from './external/sign-in/sign-in.component';
-import { SignUpComponent } from './external/sign-up/sign-up.component';
-import { LayoutComponent } from './internal/layout/layout.component';
-import { HomeComponent } from './internal/home/home.component';
-import { TaskCreateComponent } from './internal/task/task-create/task-create.component';
-import { KanbanComponent } from './internal/kanban/kanban.component';
+import { SignInComponent } from './views/external/sign-in/sign-in.component';
+import { SignUpComponent } from './views/external/sign-up/sign-up.component';
+import { LayoutComponent } from './views/internal/layout/layout.component';
+import { HomeComponent } from './views/internal/home/home.component';
+import { TaskCreateComponent } from './views/internal/task/task-create/task-create.component';
+import { KanbanComponent } from './views/internal/kanban/kanban.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'signin', pathMatch: 'prefix' },

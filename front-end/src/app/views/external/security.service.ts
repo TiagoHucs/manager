@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '../app.url.dev';
+import { API_URL } from '../../app.url.dev';
 import { UserAuth } from './auth';
 import { Router } from '@angular/router';
 

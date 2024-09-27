@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task/task.service';
 import { KanbanService } from './kanban.service';
+import { CardComponent } from './card/card.component';
 
 @Component({
   selector: 'app-kanban',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
   templateUrl: './kanban.component.html',
   styleUrl: './kanban.component.css'
 })
@@ -32,13 +33,9 @@ export class KanbanComponent implements OnInit {
     });
   }
 
-  evolue(id: number){
-    this.taskService.toEvolve(id).subscribe({
-      next: (response: any) => {
-        alert('Task evoluida: ' + id);
-        this.getResource();
-      }
-    });
+  recarregar(event: any){
+    alert('Recarga via emmiter: ' + event);
+    this.getResource();
   }
 
 }
