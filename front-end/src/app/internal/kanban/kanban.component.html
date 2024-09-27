@@ -2,25 +2,46 @@
     <div class="col-sm-4">
         <h4>A fazer</h4>
         <hr>
-        <div *ngFor="let task of resource.openTasks">
-            {{task.name}}<br>
-            {{task.status}}
+        <div *ngFor="let task of resource.openTasks" class="card">
+            <div class="card-header">
+                {{task.id}} - {{task.targetDate}}
+            </div>
+            <div class="card-body">
+                {{task.name}}<br>
+                {{task.status}}
+            </div>
+            <hr>
+            <button (click)="evolue(task.id)">Evoluir</button>
         </div>
     </div>
     <div class="col-sm-4">
         <h4>Em andamento</h4>
         <hr>
-        <div *ngFor="let task of resource.progressTasks">
-            {{task.name}}<br>
-            {{task.status}}
+        <div *ngFor="let task of resource.progressTasks" class="card">
+            <div class="card-header">
+                {{task.id}} - {{task.targetDate}}
+            </div>
+            <div class="card-body">
+                {{task.name}}<br>
+                {{task.status}}
+            </div>
+            <hr>
+            <button (click)="evolue(task.id)">Evoluir</button>
         </div>
     </div>
     <div class="col-sm-4">
         <h4>Finalizado</h4>
         <hr>
-        <div *ngFor="let task of resource.closedTasks">
-            {{task.name}}<br>
-            {{task.status}}
+        <div *ngFor="let task of resource.closedTasks" class="card">
+            <div class="card-header">
+                {{task.id}} - {{task.targetDate}}
+            </div>
+            <div class="card-body">
+                {{task.name}}<br>
+                {{task.status}}
+            </div>
+            <hr>
+            <button (click)="evolue(task.id)">Evoluir</button>
         </div>
     </div>
 </div>

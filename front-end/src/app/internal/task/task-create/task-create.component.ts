@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskService } from '../task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-create',
@@ -14,12 +15,14 @@ export class TaskCreateComponent {
 
   constructor(
     private fb: FormBuilder,
-    private service: TaskService
+    private service: TaskService,
+    private router: Router
   ) {
     
     this.taskForm = this.fb.group({
-      name: ['Minha atividade', [Validators.required]],
-      description: ['123456', [Validators.required]]
+      name: ['Estudar', [Validators.required]],
+      description: ['Saber como rodar batch em uma app spring web', [Validators.required]],
+      targetDate: ['2024-10-10']
     });
 
   }
@@ -28,6 +31,7 @@ export class TaskCreateComponent {
     console.log(this.taskForm.getRawValue());
     this.service.save(this.taskForm.getRawValue()).subscribe(res => {
       alert("Task salva com sucesso!");
+      this.router.navigate(['app/kanban']);
     })
   }
 

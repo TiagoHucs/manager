@@ -13,4 +13,8 @@ export class TaskService {
     return this.httpClient.post(`${API_URL}task/save`, task);
   }
 
+  toEvolve(id: number){
+    return this.httpClient.get(`${API_URL}task/to-evolve/${id}`);
+  }
+
 }

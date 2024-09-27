@@ -31,4 +31,20 @@ public class TaskService {
     public void delete(Long id) {
         this.taskRepository.deleteById(id);
     }
+
+    /*personalizadas*/
+
+    public void toEvolve(Long id){
+        Task task = open(id);
+        switch (task.getStatus()){
+            case OPEN:
+                task.setStatus(TaskStatus.IN_PROGRESS);
+                save(task);
+                break;
+            case IN_PROGRESS:
+                task.setStatus(TaskStatus.CLOSED);
+                save(task);
+                break;
+        }
+    }
 }

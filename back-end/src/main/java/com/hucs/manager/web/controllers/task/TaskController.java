@@ -34,10 +34,18 @@ public class TaskController {
         return ResponseEntity.ok().body(map(taskService.findAll()));
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable Long id) throws NegocioException {
         taskService.delete(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
+
+    /*personal*/
+    @RequestMapping(value = "/to-evolve/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Void> toEvolve(@PathVariable Long id) throws NegocioException {
+        taskService.toEvolve(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
+    }
+
 
 }

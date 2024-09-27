@@ -4,6 +4,7 @@
 body {
     font-family: 'Press Start 2P', cursive;
     text-align: center;
+    font-size: 12px ;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,3 +48,12 @@ button{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
+.card{
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+.card-header{
+    background-color: #97b6d3;
+}

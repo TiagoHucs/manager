@@ -29,10 +29,6 @@ return next(authReq).pipe(
     console.log(authReq)
     console.log(error)
     if (error.status === 401) {
-      console.log('É 401 kaári!!!')
-      // Obtém a instância do Router
-      //const router = new Router();
-      // Redireciona para a página de signin
       router.navigate(['/signin']);
     }
     return throwError(() => new Error(error.message));

@@ -13,6 +13,7 @@ public class TaskMapper {
                 .name(dto.getName())
                 .status(dto.getStatus())
                 .description(dto.getDescription())
+                .targetDate(dto.getTargetDate())
                 .createdDateTime(dto.getCreatedDateTime())
                 .closedDateTime(dto.getClosedDateTime())
                 .build();
@@ -23,6 +24,7 @@ public class TaskMapper {
                 .id(obj.getId())
                 .name(obj.getName())
                 .status(obj.getStatus())
+                .targetDate(obj.getTargetDate())
                 .createdDateTime(obj.getCreatedDateTime())
                 .closedDateTime(obj.getClosedDateTime())
                 .build();

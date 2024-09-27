@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { KanbanService } from './kanban.service';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../task/task.service';
+import { KanbanService } from './kanban.service';
 
 @Component({
   selector: 'app-kanban',
@@ -13,17 +14,29 @@ export class KanbanComponent implements OnInit {
 
   resource: any;
 
-  constructor(private service: KanbanService) { }
+  constructor(
+    private kanbanService: KanbanService,
+    private taskService: TaskService
+  ) { }
 
   ngOnInit(): void {
     this.getResource();
   }
 
   getResource() {
-    this.service.getKanban().subscribe({
+    this.kanbanService.getKanban().subscribe({
       next: (response: any) => {
         console.log(response);
         this.resource = response;
+      }
+    });
+  }
+
+  evolue(id: number){
+    this.taskService.toEvolve(id).subscribe({
+      next: (response: any) => {
+        alert('Task evoluida: ' + id);
+        this.getResource();
       }
     });
   }
