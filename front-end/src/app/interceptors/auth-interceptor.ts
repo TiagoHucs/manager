@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
-  //const notifier = inject(NotifierService); // Injetando o serviço dentro do interceptor
   const router = inject(Router); // Injetar o Router aqui
-  console.log('Intercepting...')
+  console.log('Auth Intercepting...')
 
 // Ignora requisições para rotas de autenticação
 if (req.url.includes('/auth')) {
+  console.log('Auth repassou...');
   return next(req);
 }
 
@@ -27,8 +27,6 @@ if (token) {
 
 return next(authReq).pipe(
   catchError((error: HttpErrorResponse) => {
-    console.log(authReq)
-    console.log(error)
     if (error.status === 401) {
       router.navigate(['/signin']);
     }

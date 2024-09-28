@@ -1,4 +1,16 @@
 .alert-msg{
-    background-color: gray;
+    color: white;
     padding: 10px;
+}
+
+.success{
+    background-color: rgb(31, 145, 8);
+}
+
+.info{
+    background-color: rgb(0, 78, 124);
+}
+
+.error{
+    background-color: rgb(255, 0, 0);
 }

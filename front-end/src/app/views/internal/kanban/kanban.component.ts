@@ -34,7 +34,6 @@ export class KanbanComponent implements OnInit {
   }
 
   recarregar(event: any){
-    alert('Recarga via emmiter: ' + event);
     this.getResource();
   }
 

@@ -45,6 +45,9 @@ public class TaskService {
                 task.setStatus(TaskStatus.CLOSED);
                 save(task);
                 break;
+            case CLOSED:
+                delete(task.getId());
+                break;
         }
     }
 }

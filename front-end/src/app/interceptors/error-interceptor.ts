@@ -5,14 +5,13 @@ import { NotifierService } from '../shared/notifier/notifier.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const notifier = inject(NotifierService); // Injetando o serviço dentro do interceptor
-  console.log('error Intercepting...')
+  console.log('Error Intercepting...')
 
 return next(req).pipe(
   catchError((response: HttpErrorResponse) => {
-    console.log(req)
-    console.log(response)
+    console.log('Error Tratando...')
     if (response.status === 400) {
-      notifier.notify(response.error.error)
+      notifier.notify('error',response.error.error)
     }
     return throwError(() => new Error(response.message));
   })

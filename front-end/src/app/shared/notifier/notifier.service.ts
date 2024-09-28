@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+// Defina a interface para o objeto de notificação
+export interface NotificationDTO {
+  msg: string;
+  type: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class NotifierService {
-  private notifierSubject = new Subject<string>();
+  private notifierSubject = new Subject<NotificationDTO>();
 
-  // Método para emitir notificações
-  notify(message: string) {
-    this.notifierSubject.next(message);
+  notify(ntfType: string, ntfMsg: string) {
+    const ntf: NotificationDTO = {type: ntfType , msg: ntfMsg };
+    this.notifierSubject.next(ntf);
   }
 
   // Método para obter o observable

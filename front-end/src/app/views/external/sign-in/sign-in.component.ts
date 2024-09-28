@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SecurityService } from '../security.service';
+import { NotifierService } from '../../../shared/notifier/notifier.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,7 +17,8 @@ export class SignInComponent {
   constructor(
     private service: SecurityService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private notifier: NotifierService
   ) {
     
     this.loginForm = this.fb.group({
@@ -30,15 +32,12 @@ export class SignInComponent {
     this.service.login(this.loginForm.getRawValue()).subscribe({
       next: (response: any) => {
         if (response.msg) {
-          alert(response.msg); 
+          this.notifier.notify('success',response.msg); 
         }
         if (response.token) {
           window.localStorage.setItem('token',response.token);
           this.router.navigate([`app/home`]);
         }
-      },
-      error: (err) => {
-        alert(err.error.error); 
       }
     });
   }
