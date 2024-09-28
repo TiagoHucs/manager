@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NotifierService } from './notifier.service';
 
@@ -10,11 +10,9 @@ import { NotifierService } from './notifier.service';
   styleUrl: './notifier.component.css'
 })
 export class NotifierComponent implements OnInit, OnDestroy {
+  @ViewChild('msgDiv') msgDiv!: ElementRef;
   private subscription!: Subscription;
   protected msg: string | undefined;
-
-  private alertCount = 0; // Contador de alertas
-  private zIndex = 1000;  // Valor inicial de z-index
 
   constructor(private notifierService: NotifierService) { }
 
@@ -26,10 +24,10 @@ export class NotifierComponent implements OnInit, OnDestroy {
 
   private handleNotification(msg: string) {
     this.msg = msg;
+    this.msgDiv.nativeElement.classList.add('alert-msg');
     setTimeout(() => {
-      setTimeout(() => {
         this.msg = undefined;
-      }, 500); // Tempo da animação fade-out
+        this.msgDiv.nativeElement.classList.remove('alert-msg');
     }, 2000); // Popup aparece por 2 segundos
 
   }
@@ -38,31 +36,5 @@ export class NotifierComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-
-
-  // Função para criar um novo popup
-  showPopup(message: string) {
-    this.alertCount++; // Incrementa o número do alerta
-
-    // Cria o elemento do popup dinamicamente
-    const popup = document.createElement("div");
-    popup.classList.add("popup");
-    popup.textContent = `${message} (Alerta #${this.alertCount})`;
-
-    // Define o z-index de forma que o novo alerta fique atrás dos anteriores
-    this.zIndex--;
-    popup.style.zIndex = this.zIndex + '';
-
-    // Adiciona o popup no body
-    document.body.appendChild(popup);
-
-    // Remove o popup após 2 segundos com um efeito de fade-out
-    setTimeout(() => {
-      popup.style.animation = 'fadeOut 0.5s forwards';
-      setTimeout(() => {
-        popup.remove(); // Remove o popup do DOM após a animação
-      }, 500); // Tempo da animação fade-out
-    }, 2000); // Popup aparece por 2 segundos
-  }
 
 }
