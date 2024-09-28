@@ -5,6 +5,7 @@ import com.hucs.manager.web.jwt.JwtUtil;
 import com.hucs.manager.core.user.User;
 import com.hucs.manager.core.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +43,7 @@ public class AuthController {
             return ResponseEntity.ok(response);
         } else {
             response.put("error", "Username already exists");  // Devolve o erro como JSON
-            return ResponseEntity.status(400).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
     }
 

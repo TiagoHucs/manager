@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
+  //const notifier = inject(NotifierService); // Injetando o serviço dentro do interceptor
   const router = inject(Router); // Injetar o Router aqui
   console.log('Intercepting...')
 
