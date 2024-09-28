@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotifierService {
+  private notifierSubject = new Subject<string>();
 
-  success(txt: string){
-    alert('Notifier SUCCESS: ' + txt);
+  // Método para emitir notificações
+  notify(message: string) {
+    this.notifierSubject.next(message);
   }
 
-  info(txt: string){
-    alert('Notifier INFO: ' + txt);
-  }
-
-  error(txt: string){
-    alert('Notifier ERROR: ' + txt);
+  // Método para obter o observable
+  get notifier$() {
+    return this.notifierSubject.asObservable();
   }
 
 }

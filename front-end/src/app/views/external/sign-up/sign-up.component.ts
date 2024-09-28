@@ -34,7 +34,7 @@ export class SignUpComponent {
     this.service.register(this.registerForm.getRawValue()).subscribe({
       next: (response: any) => {
         if (response.msg) {
-          this.notifier.success(response.msg);
+          this.notifier.notify(response.msg);
           this.router.navigate([`signin`]);
         }
       }

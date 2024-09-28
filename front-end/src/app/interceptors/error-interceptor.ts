@@ -12,7 +12,7 @@ return next(req).pipe(
     console.log(req)
     console.log(response)
     if (response.status === 400) {
-      notifier.error(response.error.error)
+      notifier.notify(response.error.error)
     }
     return throwError(() => new Error(response.message));
   })
