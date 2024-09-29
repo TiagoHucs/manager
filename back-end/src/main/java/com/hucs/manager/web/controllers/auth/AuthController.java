@@ -34,7 +34,7 @@ public class AuthController {
             return ResponseEntity.ok(response);
         } else {
             response.put("error", PASS_OR_USERNAME_INVALID);  // Devolve o erro como JSON
-            return ResponseEntity.status(HttpStatus.PROXY_AUTHENTICATION_REQUIRED).body(response);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.hucs.manager.core.user;
 
+import com.hucs.manager.core.util.CryptoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,8 @@ public class UserService {
         if(user == null){
             return false;
         }
-        return user.getUsername().equals(username) && user.getPassword().equals(password);
+        return user.getUsername().equals(username) &&
+                CryptoUtils.decrypt(user.getPassword()).equals(password);
     }
 
     // Registro de usuário (sign up)
@@ -26,6 +28,7 @@ public class UserService {
         if (findByUsername(user.getUsername()) != null) {
             return false; // Usuário já existe
         }
+        user.setPassword(CryptoUtils.encrypt(user.getPassword()));
         userRepository.save(user);
         return true;
     }
@@ -33,4 +36,5 @@ public class UserService {
     private User findByUsername(String username){
         return userRepository.findByUsername(username);
     }
+
 }
