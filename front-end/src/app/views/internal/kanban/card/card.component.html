@@ -1,15 +1,14 @@
-<div class="card">
+<div class="card bg-dark">
     <div class="card-header">
-        <i class="fa fa-ticket"></i> Id: {{task.id}}
+        <i class="fa fa-ticket"></i>Id: {{task.id}}
     </div>
     <div class="card-body">
         {{task.name}}<br>
-        {{task.status}}<br>
         Data prevista: {{task.targetDate}}
     </div>
     <div class="card-footer text-end">
         <button type="button" class="btn btn-primary btn-sm" (click)="evolue(task.id)">
-            <i class="fa fa-arrow-circle-right"></i> Avançar
+            <i class="fa fa-arrow-circle-right"></i>Avançar
         </button>
     </div>
 </div>

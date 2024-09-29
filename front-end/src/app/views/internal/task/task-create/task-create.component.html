@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-        <div class="card">
+        <div class="card bg-dark">
             <div class="card-body">
                 <h2 class="text-center mb-4">Criar atividade</h2>
                 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="d-grid  text-center">
                         <button class="btn btn-primary" type="submit" [disabled]="taskForm.invalid">
-                            <i class="fa fa-check"></i> Gravar
+                            <i class="fa fa-check"></i>Gravar
                         </button>
                     </div>
                 </form>

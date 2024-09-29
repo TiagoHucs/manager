@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskService } from '../../task/task.service';
-import { NotifierService } from '../../../../shared/notifier/notifier.service';
 
 @Component({
   selector: 'app-card',
@@ -16,14 +15,12 @@ export class CardComponent {
   @Output() emmiter = new EventEmitter<any>()
 
   constructor(
-    private taskService: TaskService,
-    private notifier: NotifierService
+    private taskService: TaskService
   ) { }
 
   evolue(id: number){
     this.taskService.toEvolve(id).subscribe({
       next: (response: any) => {
-        this.notifier.notify('success','Task evoluida: ' + id);
         this.emmiter.emit(true);
       }
     });

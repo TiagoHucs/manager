@@ -1,5 +1,5 @@
 <div class="container login-container">
-  <div class="login-form bg-light p-4 rounded">
+  <div class="login-form bg-dark p-4 rounded">
     <h2 class="text-center mb-4">Criar conta</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
@@ -16,7 +16,7 @@
       </div>
       <div class="text-center row">
         <button type="submit" class="btn btn-primary btn-block" [disabled]="registerForm.invalid">
-          <i class="fa fa-sign-in"></i> Inscrever-se
+          <i class="fa fa-sign-in"></i>Inscrever-se
         </button>
       </div>
       <div class="text-center row">

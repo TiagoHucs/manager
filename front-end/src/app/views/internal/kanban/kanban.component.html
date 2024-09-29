@@ -1,23 +1,32 @@
 <div *ngIf="resource" class="row">
     <div class="col-sm-4">
-        <h4>A fazer</h4>
-        <hr>
-        <div *ngFor="let task of resource.openTasks" >
-            <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+        <div class="kanban-col">
+            <h4><i class="fa fa-square-o" style="color:blue"></i>A fazer</h4>
+            <span class="kanban-col-sub"><i>atividades prontas para iniciar</i></span>
+            <hr>
+            <div *ngFor="let task of resource.openTasks">
+                <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+            </div>
         </div>
     </div>
     <div class="col-sm-4">
-        <h4>Em andamento</h4>
-        <hr>
-        <div *ngFor="let task of resource.progressTasks" >
-            <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+        <div class="kanban-col">
+            <h4><i class="fa fa-square-o" style="color:yellow"></i>Em andamento</h4>
+            <span class="kanban-col-sub"><i>atividades que estão sendo feitas</i></span>
+            <hr>
+            <div *ngFor="let task of resource.progressTasks">
+                <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+            </div>
         </div>
     </div>
     <div class="col-sm-4">
-        <h4>Finalizado</h4>
-        <hr>
-        <div *ngFor="let task of resource.closedTasks" >
-            <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+        <div class="kanban-col">
+            <h4><i class="fa fa-square-o" style="color:green"></i>Finalizado</h4>
+            <span class="kanban-col-sub"><i>atividades finalizadas</i></span>
+            <hr>
+            <div *ngFor="let task of resource.closedTasks">
+                <app-card [task]="task" (emmiter)="recarregar($event)"></app-card>
+            </div>
         </div>
     </div>
 </div>

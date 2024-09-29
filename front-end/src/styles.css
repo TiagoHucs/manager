@@ -1,3 +1,21 @@
+body{
+  background-color: rgb(37, 37, 37);
+  color:  whitesmoke;
+}
+
+.fa{
+  margin-right: 5px;
+}
+
+.kanban-col{
+  background-color: black;
+  padding: 15px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -17,8 +35,27 @@
     text-align: left;
     margin: 5px;
     padding: 5px;
+    color: whitesmoke;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
 }
 
 .nav-item{
   cursor: pointer;
 }
+
+.navbar{
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: gray;
+}
+
+.kanban-col-sub{
+  color: gray;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+
+
