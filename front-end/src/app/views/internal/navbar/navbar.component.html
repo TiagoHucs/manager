@@ -1,19 +1,32 @@
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="app/home">Início</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="app/kanban">Kanban</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="app/task-create">Criar atividade</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="signOut()">Sair</a>
-            </li>
-        </ul>
+        <a class="navbar-brand" >Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="app/home">
+                        <i class="fa fa-home"></i> Início
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="app/kanban">
+                        <i class="fa fa-map"></i> Kanban
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="app/task-create">
+                        <i class="fa fa-sticky-note"></i> Criar atividade
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="signOut()">
+                        <i class="fa fa-sign-out"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    
 </nav>

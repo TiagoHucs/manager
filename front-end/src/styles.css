@@ -1,38 +1,3 @@
-/* Importando a fonte diretamente no CSS (opcional) */
-/**@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*/
-
-body {
-    font-family: 'Press Start 2P', cursive;
-    text-align: center;
-    font-size: 12px ;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #00ff00; /* Verde tipo terminal retro */
-    text-shadow: 2px 2px 0px #ff0000, 4px 4px 0px #0000ff; /* Sombra colorida */
-}
-
-a{
-    color: gray; /* Verde tipo terminal retro */
-}
-
-button{
-    width: fit-content; 
-}
-
-.navbar{
-    background-color: gray;
-}
-
-.nav-item{
-    background-color: #b7b7c9;
-    border-style: solid;
-    border-top: 0px;
-    border-left: 0px;
-    margin-right: 5px;
-}
-
-
 .login-container {
     display: flex;
     justify-content: center;
@@ -54,6 +19,6 @@ button{
     padding: 5px;
 }
 
-.card-header{
-    background-color: #97b6d3;
+.nav-item{
+  cursor: pointer;
 }

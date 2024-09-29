@@ -16,6 +16,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+    private static final String USER_ALREADY_EXISTS = "Nome de usuário já cadastrado";
+    private static final String PASS_OR_USERNAME_INVALID = "Nome de usuário ou senha inválidos";
+    private static final String SUCCESS_REGISTER = "Usuário cadastrado com sucesso";
+
 
     @Autowired
     private UserService userService;
@@ -29,7 +33,7 @@ public class AuthController {
             response.put("token", token);  // Devolve o token em formato JSON
             return ResponseEntity.ok(response);
         } else {
-            response.put("error", "Invalid username or password");  // Devolve o erro como JSON
+            response.put("error", PASS_OR_USERNAME_INVALID);  // Devolve o erro como JSON
             return ResponseEntity.status(401).body(response);
         }
     }
@@ -39,10 +43,10 @@ public class AuthController {
         Map<String, String> response = new HashMap<>();
         boolean isRegistered = userService.register(user);
         if (isRegistered) {
-            response.put("msg", "User registered successfully");
+            response.put("msg", SUCCESS_REGISTER);
             return ResponseEntity.ok(response);
         } else {
-            response.put("error", "Username already exists");  // Devolve o erro como JSON
+            response.put("error", USER_ALREADY_EXISTS);  // Devolve o erro como JSON
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
     }

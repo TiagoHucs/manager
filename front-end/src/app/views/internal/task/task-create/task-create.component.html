@@ -3,25 +3,27 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
-                <h2 class="text-center mb-4">Create Task</h2>
+                <h2 class="text-center mb-4">Criar atividade</h2>
                 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
                     <div class="mb-3">
-                        <label for="taskname" class="form-label">Task name</label>
+                        <label for="taskname" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="taskname" formControlName="name"
                             placeholder="Enter your task name">
                     </div>
                     <div class="mb-3">
-                        <label for="taskDescription" class="form-label">Task description</label>
+                        <label for="taskDescription" class="form-label">Descrição</label>
                         <textarea type="text" class="form-control" id="taskDescription" formControlName="description"
                             placeholder="Enter your task description"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="taskname" class="form-label">Target date</label>
+                        <label for="taskname" class="form-label">Data prevista para término</label>
                         <input type="date" class="form-control" id="taskname" formControlName="targetDate"
                             placeholder="Enter your task name">
                     </div>
                     <div class="d-grid  text-center">
-                        <button type="submit" [disabled]="taskForm.invalid">Register</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="taskForm.invalid">
+                            <i class="fa fa-check"></i> Gravar
+                        </button>
                     </div>
                 </form>
             </div>

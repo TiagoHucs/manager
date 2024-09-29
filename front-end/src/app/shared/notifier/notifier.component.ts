@@ -13,6 +13,7 @@ export class NotifierComponent implements OnInit, OnDestroy {
   @ViewChild('msgDiv') msgDiv!: ElementRef;
   private subscription!: Subscription;
   protected msg: string | undefined;
+  protected icon: string | undefined;
 
   constructor(private notifierService: NotifierService) { }
 
@@ -31,12 +32,14 @@ export class NotifierComponent implements OnInit, OnDestroy {
   }
 
   setUpMsg(ntf: NotificationDTO){
-    this.msg = ntf.type + ' ' + ntf.msg ;
+    this.msg = ntf.msg ;
+    this.icon = ntf.type == 'success' ? 'fa fa-check' : 'fa fa-warning';
     this.msgDiv.nativeElement.classList.add('alert-msg', ntf.type);
   }
 
   resetMsg(){
     this.msg = undefined;
+    this.icon = undefined;
     this.msgDiv.nativeElement.classList.remove('alert-msg','success','info','error');
   }
 
