@@ -57,5 +57,9 @@ body{
   margin-bottom: 10px;
 }
 
+.badge{
+  cursor: pointer;
+}
+
 
 
