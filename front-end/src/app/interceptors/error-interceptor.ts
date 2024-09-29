@@ -10,9 +10,7 @@ export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
 return next(req).pipe(
   catchError((response: HttpErrorResponse) => {
     console.log('Error Tratando...')
-    if (response.status === 400) {
-      notifier.notify('error',response.error.error)
-    }
+    notifier.notify('error',response.error.error)
     return throwError(() => new Error(response.message));
   })
 );
