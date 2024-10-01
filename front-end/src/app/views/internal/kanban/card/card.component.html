@@ -4,7 +4,9 @@
     </div>
     <div class="card-body">
         {{task.name}}<br>
-        Data prevista: {{task.targetDate}}
+        Criada em: {{task.createdDateTime}}<br>
+        Iniciada em: {{task.startedDateTime}}<br>
+        Finalizada em: {{task.closedDateTime}}
     </div>
     <div class="card-footer text-end">
         <button type="button" class="btn btn-outline-secondary btn-sm" (click)="evolue(task.id)">

@@ -3,6 +3,7 @@ package com.hucs.manager.core.task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -39,10 +40,12 @@ public class TaskService {
         switch (task.getStatus()){
             case OPEN:
                 task.setStatus(TaskStatus.IN_PROGRESS);
+                task.setStartedDateTime(LocalDateTime.now());
                 save(task);
                 break;
             case IN_PROGRESS:
                 task.setStatus(TaskStatus.CLOSED);
+                task.setClosedDateTime(LocalDateTime.now());
                 save(task);
                 break;
             case CLOSED:

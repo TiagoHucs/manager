@@ -17,8 +17,8 @@ public class TaskDTO {
     private String name;
     private String description;
     private TaskStatus status;
-    private LocalDate targetDate;
     private LocalDateTime createdDateTime;
+    private LocalDateTime startedDateTime;
     private LocalDateTime closedDateTime;
 
 }

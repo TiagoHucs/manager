@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 public class ScheduleRoutineService {
 
     // Método que será executado periodicamente
-    @Scheduled(fixedRate = 10000) // Roda a cada 10 segundos
+    @Scheduled(fixedRate = 60000) // Roda a cada 1 minuto
     public void execute() {
-        System.out.println("Rotina em segundo plano executada e mensagem salva no banco.");
+        System.out.println("Executando rotina");
     }
 }
