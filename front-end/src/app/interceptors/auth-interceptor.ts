@@ -23,14 +23,8 @@ if (token) {
       Authorization: `${token}`
     }
   });
-}
+} 
 
-return next(authReq).pipe(
-  catchError((error: HttpErrorResponse) => {
-    if (error.status === 401) {
-      router.navigate(['/signin']);
-    }
-    return throwError(() => new Error(error.message));
-  })
-);
+return next(authReq);
+
 };
