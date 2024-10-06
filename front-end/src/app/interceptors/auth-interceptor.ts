@@ -1,16 +1,16 @@
-import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
-import { HttpRequest, HttpHandlerFn, HttpEvent } from '@angular/common/http';
+import { HttpEvent, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
+/**
+ * Responsavel apenas por adicionar token nas requisições que nao forem logar ou criar conta
+ */
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const router = inject(Router); // Injetar o Router aqui
-  console.log('Auth Intercepting...')
 
 // Ignora requisições para rotas de autenticação
 if (req.url.includes('/auth')) {
-  console.log('Auth repassou...');
   return next(req);
 }
 
@@ -26,5 +26,4 @@ if (token) {
 } 
 
 return next(authReq);
-
 };
