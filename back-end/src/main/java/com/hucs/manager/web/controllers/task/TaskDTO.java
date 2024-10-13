@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,7 +15,7 @@ public class TaskDTO {
     private Long id;
     private String name;
     private String description;
-    private TaskStatus status;
+    private String statusCode;
     private LocalDateTime createdDateTime;
     private LocalDateTime startedDateTime;
     private LocalDateTime closedDateTime;

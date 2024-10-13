@@ -1,5 +1,6 @@
 package com.hucs.manager.core.task;
 
+import com.hucs.manager.core.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,9 @@ public class Task {
     private LocalDateTime createdDateTime;
     private LocalDateTime startedDateTime;
     private LocalDateTime closedDateTime;
+
+    @ManyToOne
+    private User assignedTo;
 
     @PrePersist
     public void prePersist(){

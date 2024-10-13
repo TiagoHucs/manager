@@ -18,6 +18,11 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    @RequestMapping(value = "/to-save", method = RequestMethod.GET)
+    public ResponseEntity<TaskEditerDTO> toSave() throws NegocioException {
+        return ResponseEntity.ok().body(new TaskEditerDTO());
+    }
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity<Void> save(@RequestBody TaskDTO taskDTO) throws NegocioException {
         taskService.save(map(taskDTO));

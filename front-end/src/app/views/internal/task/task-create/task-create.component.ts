@@ -3,16 +3,18 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { TaskService } from '../task.service';
 import { Router } from '@angular/router';
 import { NotifierService } from '../../../../shared/notifier/notifier.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-create',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './task-create.component.html',
   styleUrl: './task-create.component.css'
 })
 export class TaskCreateComponent {
   taskForm: FormGroup;
+  resource: any;
 
   constructor(
     private fb: FormBuilder,
@@ -20,10 +22,15 @@ export class TaskCreateComponent {
     private router: Router,
     private notifier: NotifierService
   ) {
-    
+
+    this.service.toSave().subscribe(res => {
+      this.resource = res;
+    })
+
     this.taskForm = this.fb.group({
       name: ['Estudar', [Validators.required]],
       description: ['Saber como rodar batch em uma app spring web', [Validators.required]],
+      statusCode: [],
       targetDate: ['2024-10-10']
     });
 

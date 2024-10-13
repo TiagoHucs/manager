@@ -9,6 +9,10 @@ export class TaskService {
 
   constructor(private httpClient: HttpClient) { }
 
+  toSave(){
+    return this.httpClient.get(`${API_URL}task/to-save`);
+  }
+
   save(task: any){
     return this.httpClient.post(`${API_URL}task/save`, task);
   }

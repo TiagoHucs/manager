@@ -15,6 +15,12 @@
                         <textarea type="text" class="form-control" id="taskDescription" formControlName="description"
                             placeholder="Enter your task description"></textarea>
                     </div>
+                    <div class="mb-3" *ngIf="resource?.statusList">
+                        <label for="taskStatus" class="form-label">Situação</label>
+                        <select class="form-control" id="taskStatus" formControlName="statusCode" placeholder="Enter your task description">
+                            <option *ngFor="let st of resource.statusList" value="{{st.code}}">{{st.description}}</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="taskname" class="form-label">Data prevista para término</label>
                         <input type="date" class="form-control" id="taskname" formControlName="targetDate"

@@ -1,6 +1,7 @@
 package com.hucs.manager.web.controllers.task;
 
 import com.hucs.manager.core.task.Task;
+import com.hucs.manager.core.task.TaskStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ public class TaskMapper {
         return Task.builder()
                 .id(dto.getId())
                 .name(dto.getName())
-                .status(dto.getStatus())
+                .status(TaskStatus.valueOf(dto.getStatusCode()))
                 .description(dto.getDescription())
                 .createdDateTime(dto.getCreatedDateTime())
                 .startedDateTime(dto.getStartedDateTime())
@@ -20,10 +21,11 @@ public class TaskMapper {
     }
 
     public static TaskDTO map(Task obj){
+
         return TaskDTO.builder()
                 .id(obj.getId())
                 .name(obj.getName())
-                .status(obj.getStatus())
+                .statusCode(obj.getStatus() != null ?  obj.getStatus().name() : null)
                 .description(obj.getDescription())
                 .createdDateTime(obj.getCreatedDateTime())
                 .startedDateTime(obj.getStartedDateTime())

@@ -2,5 +2,12 @@ package com.hucs.manager.core.task;
 
 public enum TaskStatus {
 
-    OPEN,IN_PROGRESS, CLOSED;
+    OPEN("Aberta"),IN_PROGRESS("Em andamento"), CLOSED("Fechada");
+
+    public final String description;
+
+    TaskStatus(String description){
+        this.description = description;
+    }
+
 }
