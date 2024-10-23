@@ -1,9 +1,6 @@
 <div class="card bg-dark">
     <div class="card-header">
         <div class="row">
-            <div class="col text-start">
-                <img class="char" src="assets/characters/sprite_00.png" alt="kirk"  >
-            </div>
             <div class="col">
                 {{task.id}}
             </div>
@@ -12,10 +9,18 @@
 
     </div>
     <div class="card-body">
-        {{task.name}}<br>
-        Criada em: {{task.createdDateTime}}<br>
-        Iniciada em: {{task.startedDateTime}}<br>
-        Finalizada em: {{task.closedDateTime}}
+        <div class="row">
+            <div class="col-sm-1">
+                <img class="char" src="assets/characters/sprite_00.png" alt="kirk"  >
+            </div>
+            <div class="col-sm-11" >
+                {{task.name}}<br>
+                Criada em: {{task.createdDateTime}}<br>
+                Iniciada em: {{task.startedDateTime}}<br>
+                Finalizada em: {{task.closedDateTime}}
+            </div>
+        </div>
+
     </div>
     <div class="card-footer text-end">
         <button type="button" class="btn btn-outline-secondary btn-sm" (click)="evolue(task.id)">

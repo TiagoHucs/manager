@@ -19,7 +19,6 @@ export class NotifierComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.notifierService.notifier$.subscribe((ntf) => {
-      console.log(ntf)
       this.handleNotification(ntf);
     });
   }

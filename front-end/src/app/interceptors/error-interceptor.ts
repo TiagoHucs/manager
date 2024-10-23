@@ -18,6 +18,8 @@ export const errorInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next:
         'Usuario não autorizado' : response.error.error;
         notifier.notify('error', msg);
         router.navigate(['/signin']);
+      } else if (response.status == 400) {
+        notifier.notify('error', response.error.msg);
       } else if (response.status == 0){
         notifier.notify('error', 'Ocorreu um erro inesperado');
       } else {

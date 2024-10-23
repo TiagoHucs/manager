@@ -27,7 +27,6 @@ export class KanbanComponent implements OnInit {
   getResource() {
     this.kanbanService.getKanban().subscribe({
       next: (response: any) => {
-        console.log(response);
         this.resource = response;
       }
     });

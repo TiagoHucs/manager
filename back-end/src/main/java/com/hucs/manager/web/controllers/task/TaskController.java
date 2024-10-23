@@ -2,6 +2,7 @@ package com.hucs.manager.web.controllers.task;
 
 import com.hucs.manager.core.config.NegocioException;
 import com.hucs.manager.core.task.TaskService;
+import com.hucs.manager.core.task.TaskValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    private TaskValidator taskValidator = new TaskValidator();
+
     @RequestMapping(value = "/to-save", method = RequestMethod.GET)
     public ResponseEntity<TaskEditerDTO> toSave() throws NegocioException {
         return ResponseEntity.ok().body(new TaskEditerDTO());
@@ -25,6 +28,7 @@ public class TaskController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity<Void> save(@RequestBody TaskDTO taskDTO) throws NegocioException {
+        taskValidator.validate(taskDTO);
         taskService.save(map(taskDTO));
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
